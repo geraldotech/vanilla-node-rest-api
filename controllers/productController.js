@@ -9,6 +9,9 @@ async function getProducts(req, res) {
         const products = await Product.findAll()
 
         res.writeHead(200, { 'Content-Type': 'application/json' })
+         res.header("Access-Control-Allow-Origin", "*");
+	
+    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
         res.end(JSON.stringify(products))
     } catch (error) {
         console.log(error)
