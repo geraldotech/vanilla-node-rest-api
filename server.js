@@ -11,9 +11,7 @@ const server = http.createServer((req, res) => {
   if (req.url === '/api/products' && req.method === 'GET') {
     
     getProducts(req, res);
-    res.header("Access-Control-Allow-Origin", "*");
-	//Quais são os métodos que a conexão pode realizar na API
-    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+   
   } else if (req.url.match(/\/api\/products\/\w+/) && req.method === 'GET') {
     const id = req.url.split('/')[3];
     getProduct(req, res, id);
