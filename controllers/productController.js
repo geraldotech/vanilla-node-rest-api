@@ -9,7 +9,7 @@ async function getProducts(req, res) {
         const products = await Product.findAll()
 
         res.writeHead(200, { 'Content-Type': 'application/json' })
-         res.header("Access-Control-Allow-Origin", "*");
+         
 	
 	
     
