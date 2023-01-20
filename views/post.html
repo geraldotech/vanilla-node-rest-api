@@ -20,8 +20,10 @@
       event.preventDefault();
       const ajaxn = new XMLHttpRequest();
       const data = new FormData(form);
-      data.append("referer", "https://example.com");
-      ajaxn.open("POST", "http://localhost:5000/api/products");
+      ajaxn.open(
+        "POST",
+        "https://jsvanilla-node-api-way.onrender.com/api/products"
+      );
       ajaxn.setRequestHeader("content-Type", "application/json");
       var json = JSON.stringify(Object.fromEntries(data));
       ajaxn.send(json);
