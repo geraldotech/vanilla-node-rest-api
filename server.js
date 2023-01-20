@@ -1,33 +1,35 @@
-const http = require('http');
+const http = require("http");
 const {
   getProducts,
   getProduct,
   createProduct,
   updateProduct,
   deleteProduct,
-} = require('./controllers/productController');
+} = require("./controllers/productController");
 
 const server = http.createServer((req, res) => {
-  if (req.url === '/api/products' && req.method === 'GET') {
-    
+  if (req.url === "/api/products" && req.method === "GET") {
     getProducts(req, res);
-   
-  } else if (req.url.match(/\/api\/products\/\w+/) && req.method === 'GET') {
-    const id = req.url.split('/')[3];
+    //cors
+    //allow allow @dev First, read about security */
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET");
+  } else if (req.url.match(/\/api\/products\/\w+/) && req.method === "GET") {
+    const id = req.url.split("/")[3];
     getProduct(req, res, id);
-  } else if (req.url === '/api/products' && req.method === 'POST') {
+  } else if (req.url === "/api/products" && req.method === "POST") {
     createProduct(req, res);
-  } else if (req.url.match(/\/api\/products\/\w+/) && req.method === 'PUT') {
-    const id = req.url.split('/')[3];
+  } else if (req.url.match(/\/api\/products\/\w+/) && req.method === "PUT") {
+    const id = req.url.split("/")[3];
     updateProduct(req, res, id);
-  } else if (req.url.match(/\/api\/products\/\w+/) && req.method === 'DELETE') {
-    const id = req.url.split('/')[3];
+  } else if (req.url.match(/\/api\/products\/\w+/) && req.method === "DELETE") {
+    const id = req.url.split("/")[3];
     deleteProduct(req, res, id);
   } else {
-    res.writeHead(404, { 'Content-Type': 'application/json' });
+    res.writeHead(404, { "Content-Type": "application/json" });
     res.end(
       JSON.stringify({
-        message: 'Route Not Found: Please use the api/products endpoint',
+        message: "Route Not Found: Please use the api/products endpoint",
       })
     );
   }
