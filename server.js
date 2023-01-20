@@ -1,4 +1,5 @@
 const http = require("http");
+const fs = require("fs");
 const {
   getProducts,
   getProduct,
@@ -25,6 +26,12 @@ const server = http.createServer((req, res) => {
   } else if (req.url.match(/\/api\/products\/\w+/) && req.method === "DELETE") {
     const id = req.url.split("/")[3];
     deleteProduct(req, res, id);
+  } else if (req.url == "/fetch") {
+    fs.readFile("./views/fetch_Test.html", function (err, data) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write(data);
+      return res.end();
+    });
   } else {
     res.writeHead(404, { "Content-Type": "application/json" });
     res.end(

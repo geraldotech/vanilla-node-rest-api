@@ -3,6 +3,7 @@
 ## Updates by: gmap
 
 - Add CORS support
+- Add fetch page && and install fs
 
 > Full CRUD REST API using Node.js with no framework
 
