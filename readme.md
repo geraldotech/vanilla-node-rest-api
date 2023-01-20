@@ -3,7 +3,7 @@
 ## Updates by: gmap
 
 - Add CORS support
-- Add fetch page && and install fs
+- Add fetch page && and install fs [https://jsvanilla-node-api-way.onrender.com/fetch](https://jsvanilla-node-api-way.onrender.com/fetch)
 
 > Full CRUD REST API using Node.js with no framework
 

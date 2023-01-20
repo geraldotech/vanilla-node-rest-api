@@ -13,8 +13,8 @@ const server = http.createServer((req, res) => {
     getProducts(req, res);
     //cors
     //allow allow @dev First, read about security */
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET");
+    // res.setHeader("Access-Control-Allow-Origin", "*");
+    //res.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET");
   } else if (req.url.match(/\/api\/products\/\w+/) && req.method === "GET") {
     const id = req.url.split("/")[3];
     getProduct(req, res, id);
