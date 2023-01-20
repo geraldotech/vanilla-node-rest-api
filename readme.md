@@ -9,6 +9,8 @@
   - /poster
   - /fetch
 
+Include local files for test CORS
+
 > Full CRUD REST API using Node.js with no framework
 
 This is for learning/experimental purposes. In most cases, you would use something like Express in a production project
