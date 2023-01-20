@@ -9,6 +9,7 @@
     <form id="mform">
       <input name="name" type="text" placeholder="produto" />
       <input name="price" type="number" placeholder="price" />
+      <input name="description" type="text" placeholder="description" />
       <input type="submit" value="Send" />
     </form>
   </body>
@@ -20,7 +21,7 @@
       const ajaxn = new XMLHttpRequest();
       const data = new FormData(form);
       data.append("referer", "https://example.com");
-      ajaxn.open("POST", "https://localhost:5000/api/products");
+      ajaxn.open("POST", "http://localhost:5000/api/products");
       ajaxn.setRequestHeader("content-Type", "application/json");
       var json = JSON.stringify(Object.fromEntries(data));
       ajaxn.send(json);

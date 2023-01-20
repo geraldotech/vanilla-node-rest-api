@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <h2>Delete method to NodeServer</h2>
+    <form id="mform">
+      <input name="id" type="text" placeholder="id" />
+      <input type="submit" value="Send" />
+    </form>
+  </body>
+  <script>
+    const form = document.querySelector("#mform");
+
+    form.onsubmit = function (event) {
+      event.preventDefault();
+      const ajaxn = new XMLHttpRequest();
+      const data = new FormData(form);
+      console.log(data.get("id"));
+
+      ajaxn.open(
+        "DELETE",
+        "http://localhost:5000/api/products/" + data.get("id")
+      );
+      ajaxn.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+      );
+      ajaxn.send();
+    };
+  </script>
+</html>

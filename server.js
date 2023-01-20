@@ -13,8 +13,8 @@ const server = http.createServer((req, res) => {
     getProducts(req, res);
     //cors
     //allow allow @dev First, read about security */
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET");
+    // res.setHeader("Access-Control-Allow-Origin", "*");
+    //res.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET");
   } else if (req.url.match(/\/api\/products\/\w+/) && req.method === "GET") {
     const id = req.url.split("/")[3];
     getProduct(req, res, id);
@@ -28,6 +28,18 @@ const server = http.createServer((req, res) => {
     deleteProduct(req, res, id);
   } else if (req.url == "/fetch") {
     fs.readFile("./views/fetch_Test.html", function (err, data) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write(data);
+      return res.end();
+    });
+  } else if (req.url == "/poster") {
+    fs.readFile("./views/post.html", function (err, data) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write(data);
+      return res.end();
+    });
+  } else if (req.url == "/deleter") {
+    fs.readFile("./views/delete.html", function (err, data) {
       res.writeHead(200, { "Content-Type": "text/html" });
       res.write(data);
       return res.end();
