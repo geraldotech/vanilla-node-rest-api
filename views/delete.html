@@ -22,7 +22,8 @@
 
       ajaxn.open(
         "DELETE",
-        "https://jsvanilla-node-api-way.onrender.com/deleter/" + data.get("id")
+        "https://jsvanilla-node-api-way.onrender.com/api/product/" +
+          data.get("id")
       );
       ajaxn.setRequestHeader(
         "Content-type",
