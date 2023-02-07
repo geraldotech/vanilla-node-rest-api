@@ -2,12 +2,14 @@
 
 ### Updates by: gmap
 
+- [https://jsvanilla-node-api-way.onrender.com/fetch](https://jsvanilla-node-api-way.onrender.com/fetch)
 - Add CORS support
-- Add fetch page && and install fs [https://jsvanilla-node-api-way.onrender.com/fetch](https://jsvanilla-node-api-way.onrender.com/fetch)
+- Add fetch page && and install fs
 - Routers
+
+  - /fetch
   - /deleter
   - /poster
-  - /fetch
 
 Include local files for test CORS
 
